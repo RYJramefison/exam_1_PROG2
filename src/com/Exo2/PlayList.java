@@ -6,13 +6,13 @@ import java.util.stream.Stream;
 
 public class PlayList{
     private List<Chanson> playList;
-    private List<Chanson> favoris;
+    private int likes;
 
 
 
-    public PlayList(List<Chanson> playList, List<Chanson> favoris) {
+    public PlayList(List<Chanson> playList) {
         this.playList = playList;
-        this.favoris = favoris;
+        this.likes = 0;
     }
 
     @Override
@@ -32,6 +32,22 @@ public class PlayList{
         playList.add(chanson);
     }
 
+    public List<Chanson> getPlayList() {
+        return playList;
+    }
+
+    public void setPlayList(List<Chanson> playList) {
+        this.playList = playList;
+    }
+
+    public int getLikes() {
+        return likes;
+    }
+
+    public void setLikes(int likes) {
+        this.likes = likes;
+    }
+
     public void addToPlaylist(Album album){
 //        playList.add(album)
 
@@ -45,24 +61,21 @@ public class PlayList{
         }
     }
 
-    public void like(Chanson chanson){
-        int likes = chanson.getLike();
-        likes++;
-        chanson.setLike(likes);
-        for (Chanson chanson1 : playList){
-            if (chanson1.equals(chanson)){
-                playList.remove(chanson1);
-            }
-            else {
-                playList.add(chanson);
-            }
-        }
-    }
+
 
     public Stream<Chanson> exclude(Genre genre){
         return playList.stream().filter(chanson -> chanson.getGenre().equals(genre));
     }
 
 
+    public void countPlaylist(Chanson chanson){
+        int countPLayist = 0;
+        if (playList.contains(chanson)){
+            countPLayist++;
+        }
+    }
 
+    public void getTotalLikes(PlayList playList){
+
+    }
 }

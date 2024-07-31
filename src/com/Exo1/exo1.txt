@@ -1,0 +1,7 @@
+1. l'annotation @Override est utilisé pour definir une methode qui est herité de la classe parent.
+
+2. On a besoin de redefinir equals et hashCode afin que l' addresse mémoire d'un même valeur soit
+ parail et qu'on puisse les comparer au cas où on a besoin.
+
+3. le polymorphisme statique est un methode mais qui prend plusieurs forme , c'est a dire que les methodes sont
+les même mais la difference est que le parametre de chacun de ces methodes sont differents
